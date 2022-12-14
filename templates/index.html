@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static '/vendor/bootstrap/css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static '/vendor/bootstrap-icons/bootstrap-icons.css' %}">
+    <link rel="stylesheet" href="{% static '/vendor/boxicons/css/boxicons.css' %}">
+    <link rel="stylesheet" href="{% static '/css/main.css' %}">
+</head>
+<body>
+    <div class="home-content svg-bg">
+        <div class="navbar">
+            <h3><span class="bi bi-person-square"></span> {{ username }}</h3>
+            <h4><a href="/admin/custom/">admin</a></h4>
+        </div>
+        <div class="form_div">
+            {% csrf_token %}
+            <form action="/predict/image/" method="post" enctype="multipart/form-data">
+               <h4>Diabetic Retinopathy Detection System</h4>
+               <br><br>
+                <input type="file" accept=".jpeg, .png, .jpg" class="image" multiple name="image" id="image" required>
+                <button type="submit" class="btn"> Submit</button>
+            </form>
+    
+        </div>
+       
+    </div>
+        
+    <script src="{% static '/vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static '/vendor/bootstrap/js/bootstrap.js' %}"></script>
+    <script src="{% static '/js/home.js' %}"></script>
+</body>
+</html>
